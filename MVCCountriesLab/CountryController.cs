@@ -28,8 +28,10 @@ namespace MVCCountriesLab
                 CountryListView countryListView = new CountryListView(CountryDb);
                 Console.WriteLine("Hello, welcome to the country app. Please select a country number from the following list:");
                 CountryListAction();
-                break;
+
+              keepGoing =  Validator.Validator.getContinue("Would you like to learn about another country?");
             }
+            
         }
         public void CountryListAction()
         {
@@ -38,7 +40,7 @@ namespace MVCCountriesLab
             int input = Validator.Validator.GetNumber();
             while (true)
             {
-                if (input < 1 || input > CountryDb.Count)
+                if (input < 0 || input > 5)
                 {
                     Console.WriteLine("That number was not in range.");
                 }
@@ -48,7 +50,7 @@ namespace MVCCountriesLab
                 }
                 break;
             }
-            Validator.Validator.getContinue("Would you like to learn about another country?");       
+                 
         }
     }
     //Console.ForegroundColor = ConsoleColor.InsertColorHere
